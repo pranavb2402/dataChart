@@ -1,10 +1,11 @@
 // Chart.js
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import ReactECharts from "echarts-for-react";
 
 function Chart({ data, selectedColumn, chartType }) {
   const chartRef = useRef(null);
   const dataRef = useRef({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const { xAxisData } = useMemo(() => {
     const xAxisData = data.map((row) => row.Date);
@@ -81,7 +82,16 @@ function Chart({ data, selectedColumn, chartType }) {
   }, [data, selectedColumn, chartType]);
 
   return (
-    <ReactECharts option={{}} ref={chartRef} style={{ height: "400px" }} />
+    <ReactECharts
+      onChartReady={() => {
+        setIsLoading(false);
+      }}
+      showLoading={isLoading}
+      lazyUpdate={true}
+      option={{}}
+      ref={chartRef}
+      style={{ height: "400px" }}
+    />
   );
 }
 
