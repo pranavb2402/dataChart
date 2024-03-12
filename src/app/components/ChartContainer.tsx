@@ -35,19 +35,15 @@ function ChartContainer({ data }) {
         </div>
         <div
           onClick={handleChartTypeChange}
-          className="m-2 border-white border rounded-xl"
+          className="m-2 border-white border rounded"
         >
           <button
-            className={`p-2 rounded-xl ${
-              chartType === "bar" && "bg-yellow-400"
-            }`}
+            className={`p-2 rounded ${chartType === "bar" && "bg-yellow-400"}`}
           >
             Bar
           </button>
           <button
-            className={`p-2 rounded-xl ${
-              chartType === "line" && "bg-yellow-400"
-            }`}
+            className={`p-2 rounded ${chartType === "line" && "bg-yellow-400"}`}
           >
             Line
           </button>
