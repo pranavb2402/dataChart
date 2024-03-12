@@ -80,8 +80,6 @@ function Chart({ data, selectedColumn, chartType }) {
     }
   }, [data, selectedColumn, chartType]);
 
-  console.log("rendered");
-
   return (
     <ReactECharts option={{}} ref={chartRef} style={{ height: "400px" }} />
   );
