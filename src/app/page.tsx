@@ -28,7 +28,8 @@ function App() {
       Papa.parse(csv, {
         header: true,
         complete: (result) => {
-          setData(result.data);
+          // slicing data so graph can render it fast
+          setData(result.data.slice(0, 80000));
         },
       });
     } catch (error) {
